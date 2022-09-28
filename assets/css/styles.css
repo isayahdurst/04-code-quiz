@@ -2,6 +2,8 @@ html {
   --primary-accent: rgb(48, 0, 138);
   --secondary-accent: rgb(224, 93, 224);
   --custom-h1: 97.66px;
+  --custom-h2: 50px;
+  --custom-h3: 40px;
   --custom-p: 32px;
 
   --quiz-width: 60vw;
@@ -15,6 +17,10 @@ html {
 
 body {
   font-family: "Courier Prime", monospace;
+}
+
+ul, ol, li {
+  list-style: none;
 }
 
 header ul {
@@ -82,7 +88,7 @@ header li:first-child {
 }
 
 .quiz-card h2 {
-  font-size: 50px;
+  font-size: var(--custom-h2);
 }
 
 .quiz-card ul {
@@ -128,3 +134,88 @@ header li:first-child {
   font-size: 32px;
   font-weight: 400;
 }
+
+/* Result Card */
+
+.result-card {
+  width: 60vw;
+  margin: 60px auto;
+  font-size: 30px;
+}
+
+.result-card h3 {
+  font-size: var(--custom-h3);
+}
+
+.result-card p {
+  margin: 15px 0px;
+}
+
+.name-entry-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.name-entry-wrapper p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-entry-wrapper input {
+  padding: 3px 0px;
+  font-size: 30px;
+  max-width: 100px;
+  min-width: 100px;
+  margin: 0px 20px;
+}
+
+.result-card button {
+  font-family: "Courier Prime", monospace;
+  font-size: 30px;
+  padding: 10px 20px;
+  background-color: var(--primary-accent);
+  color: white;
+  border: solid 0px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.result-card button:hover {
+  background-color: var(--secondary-accent);
+}
+
+/* High Score Card */
+.score-card {
+  width: 60vw;
+  background-color: white;
+  margin: 60px auto;
+}
+
+.score-card h3 {
+  font-size: var(--custom-p);
+  margin-bottom: 20px;
+}
+
+.score-card li {
+  font-size: var(--custom-p);
+  margin: 20px 0px 10px 0px;
+  background-color: rgb(183, 159, 231);
+}
+
+.score-card button {
+  margin: 10px 0px;
+  padding: 10px 20px;
+  border-style: none;
+  border-radius: 10px;
+  font-size: 22px;
+  background-color: rgb(48, 0, 138);
+  color: white;
+  cursor: pointer;
+}
+
+.score-card button:hover {
+  background-color: var(--secondary-accent);
+}
+
+
