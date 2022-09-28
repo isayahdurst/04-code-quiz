@@ -18,12 +18,12 @@
       <nav>
         <ul>
           <li class="highscores">View high scores</li>
-          <li class="timer">Time: <span class="time">5</span></li>
+          <li class="timer">Time: <span class="time">0</span></li>
         </ul>
       </nav>
     </header>
     <main>
-      <section class="start-card">
+      <section class="start-card hidden">
         <h1>Coding Quiz Challenge</h1>
         <p>
           Try to answer the following code-related questions withing the time
@@ -31,6 +31,19 @@
           score/time by ten seconds!
         </p>
         <button class="start-button">Start Quiz</button>
+      </section>
+      <!-- End of Start Quiz Card -->
+
+      <!-- Beggining of Quiz Card-->
+      <section class="quiz-card">
+        <h2>Commonly used data types do not include:</h2>
+        <ul class="answers">
+          <li><button id="test">1. Strings</button></li>
+          <li><button>2. Booleans</button></li>
+          <li><button>3. Alerts</button></li>
+          <li><button>4. Numbers</button></li>
+        </ul>
+        <h2 class="result">Wrong!</h2>
       </section>
     </main>
     <script src="./assets/js/script.js"></script>
