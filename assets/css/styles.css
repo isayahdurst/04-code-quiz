@@ -56,7 +56,7 @@ header li:first-child {
 .start-card p {
   margin: 20px;
   font-size: var(--custom-p);
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .start-button {

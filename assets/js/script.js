@@ -7,6 +7,7 @@ const choiceList = document.querySelector('.answers');
 const choiceResult = document.querySelector('.result');
 const timerEl = document.querySelector('.time');
 const quizScore = document.querySelector('.quiz-score');
+const submitInitials = document.querySelector('.submit-initials');
 
 /* Gets cards */
 const startCard = document.querySelector('.start-card');
@@ -58,16 +59,16 @@ const questionBank = new Map([
 
 let currentQuestion = 1;
 
-/* Timer */
+/* Timer Object */
 
 const timer = {
     timeRemaining: 60,
     interval: undefined,
 
+    // This method starts the timer for the first time when it's called after the 'start button' is clicked.
     start(time) {
         this.timeRemaining = time;
         const timerInterval = setInterval(() => {
-            console.log(this.timeRemaining);
             this.interval = timerInterval;
             this.timeRemaining--;
             timerEl.textContent = this.timeRemaining;
@@ -78,49 +79,50 @@ const timer = {
         }, 1000);
     },
 
+    // This method allows the timer to be decreased and is called if the user answers a question incorrectly.
     decreasetime() {
         this.timeRemaining -= 10;
     },
 
+    // This method stops the timer and is called if the time remaining falls to/below zero, or all questions have been answered.
     stopTimer() {
         clearInterval(this.interval);
     }
 };
 
+const scores = {
+
+}
+
 /* Functions */
 
+// Closes welcome message, loads quiz card, and initiates the timer.
 const startQuiz = function () {
     startCard.classList.add('hidden');
     quizCard.classList.remove('hidden');
     timer.start(60);
 }
 
-const displayAnswerResult = function () {
-    console.log(choiceResult);
-    const resultInterval = setTimeout(() => {
-        choiceResult.classList.remove('hidden');
-    }, 1000);
-
-}
-
-const updateTimer = function (timestamp) {
-
-}
-
+// Closes quiz card, loads results card, and changes quiz score to reflect performance.
 const finishQuiz = function () {
     quizCard.classList.add('hidden');
     resultsCard.classList.remove('hidden');
     quizScore.textContent = timer.timeRemaining;
+    timer.stopTimer();
+    saveScore();
 }
 
+// Loads question based on the question number entered from the questionBank map. Resets choices to '' after each question. 
 const loadQuestion = function (question) {
     document.querySelector('.answers').innerHTML = '';
+
+    // Destructures question array into a key, value pair. Displays the question and possible choices.
 
     for (const [key, value] of question) {
         if (typeof key === 'number') {
             let choice = document.createElement('li');
             let answerButton = document.createElement('button');
-            answerButton.textContent = value;
+            answerButton.textContent = `${value}`;
             document.querySelector('.answers').appendChild(choice).appendChild(answerButton);
             answerButton.setAttribute('choice-index', key);
         }
@@ -154,9 +156,26 @@ const checkAnswer = function (event) {
     }, 1500);
 }
 
+const saveScore = function () {
+    const initials = document.getElementById('initials').value;
+    scores[initials] = Number(quizScore.textContent);
+    console.log(scores[`${initials}`]);
+    localStorage.setItem(initials, JSON.stringify(scores));
+    printScores();
+}
+
+const printScores = function () {
+    const keys = [];
+    for (const key in localStorage) {
+        keys.push(key);
+    }
+    console.log(keys);
+};
+
 /* Event Listeners */
 
 startButton.addEventListener('click', startQuiz);
 loadQuestion(questionBank.get(currentQuestion));
 
 document.querySelector('.answers').addEventListener('click', checkAnswer);
+submitInitials.addEventListener('click', saveScore);
