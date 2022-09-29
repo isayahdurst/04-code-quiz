@@ -44,6 +44,10 @@ WHEN the game is over
 THEN I can save my initials and score
 ```
 
+### Screenshot
+
+- Quiz Preview [Quiz](./assets/images/quiz-screenshot.png?raw=true "Quiz Start Screen")
+
 ### Links
 
 - Live Site URL: [Github](https://isayahdurst.github.io/04-code-quiz)

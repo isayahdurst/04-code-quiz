@@ -17,6 +17,7 @@ html {
 
 body {
   font-family: "Courier Prime", monospace;
+  height: 100vh;
 }
 
 ul,
@@ -220,4 +221,17 @@ header li:first-child {
 
 .score-card button:hover {
   background-color: var(--secondary-accent);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--secondary-accent);
+  height: 30px;
+}
+
+footer h3 {
+  margin-top: 5px;
+  text-align: center;
 }
