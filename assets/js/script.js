@@ -166,16 +166,16 @@ const checkAnswer = function (event) {
     }
     choiceResult.classList.remove("hidden");
   }
+  if (currentQuestion < [...questionBank.keys()].length) {
+    currentQuestion += 1;
+    loadQuestion(questionBank.get(currentQuestion));
+  } else {
+    finishQuiz();
+    timer.stopTimer();
+  }
   setTimeout(() => {
     choiceResult.classList.add("hidden");
-    if (currentQuestion < [...questionBank.keys()].length) {
-      currentQuestion += 1;
-      loadQuestion(questionBank.get(currentQuestion));
-    } else {
-      finishQuiz();
-      timer.stopTimer();
-    }
-  }, 1500);
+  }, 1000);
 };
 
 const loadScores = function () {
@@ -201,8 +201,10 @@ const saveScores = function () {
   localStorage.setItem("highscores", JSON.stringify(highscoreList));
   loadScores();
   renderScores();
+  initials.value = "";
 };
 
+/* Displays Highscores to the page */
 const renderScores = function () {
   document.querySelector(".result-card").classList.add("hidden");
   document.querySelector(".score-card").classList.remove("hidden");
@@ -214,9 +216,7 @@ const renderScores = function () {
 
   for (const [index, item] of renderList.entries()) {
     const score = document.createElement("li");
-    score.textContent = `${index + 1}. Name: ${item.name} | Score: ${
-      item.score
-    }`;
+    score.textContent = `${index + 1}. ${item.name} | Score: ${item.score}`;
     document.querySelector(".score-list").appendChild(score);
   }
 };
