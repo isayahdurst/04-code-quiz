@@ -97,7 +97,7 @@ Regarding this site, there are a couple things I'd improve if I had more time. O
 
 Another thing which could be improved is the bottom border under the quiz being persistent the entire time. In the mock-up it's only visible for a couple seconds while the answer result is displayed.
 
-Sometimes when restarting the quiz, the last-entered initial in the initials text-entry field is still visible. I did a check to remove it but there's a specific way to go through the quiz which will circumvent removal and, whatever that is, I haven't been able to find it. To fix this, I could clear the value when the "start quiz" button is clicked or after the submit button.
+FIXED - Sometimes when restarting the quiz, the last-entered initial in the initials text-entry field is still visible. I did a check to remove it but there's a specific way to go through the quiz which will circumvent removal and, whatever that is, I haven't been able to find it. To fix this, I could clear the value when the "start quiz" button is clicked or after the submit button.
 
 ## Author
 

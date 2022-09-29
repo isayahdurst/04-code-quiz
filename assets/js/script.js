@@ -8,6 +8,7 @@ const choiceResult = document.querySelector(".result");
 const timerEl = document.querySelector(".time");
 const quizScore = document.querySelector(".quiz-score");
 const submitInitials = document.querySelector(".submit-initials");
+const userInitials = document.querySelector('#initials');
 
 /* Gets cards */
 const startCard = document.querySelector(".start-card");
@@ -117,6 +118,8 @@ const startQuiz = function () {
   startCard.classList.add("hidden");
   quizCard.classList.remove("hidden");
   timer.start(60);
+  initials.textContent = '';
+  initials.value = '';
 };
 
 // Closes quiz card, loads results card, and changes quiz score to reflect performance.
