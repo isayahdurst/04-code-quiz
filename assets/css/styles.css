@@ -19,7 +19,9 @@ body {
   font-family: "Courier Prime", monospace;
 }
 
-ul, ol, li {
+ul,
+ol,
+li {
   list-style: none;
 }
 
@@ -138,9 +140,11 @@ header li:first-child {
 /* Result Card */
 
 .result-card {
-  width: 60vw;
+  width: 50vw;
+  min-width: 60vw;
   margin: 60px auto;
   font-size: 30px;
+  background-color: gray;
 }
 
 .result-card h3 {
@@ -217,5 +221,3 @@ header li:first-child {
 .score-card button:hover {
   background-color: var(--secondary-accent);
 }
-
-
